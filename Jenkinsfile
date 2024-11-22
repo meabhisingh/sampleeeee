@@ -13,7 +13,7 @@ pipeline {
 
          stage('Check Environment Variables') {
             steps {
-                sh 'env'
+                echo $PATH
             }
         }
         
