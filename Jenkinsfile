@@ -13,6 +13,8 @@ pipeline {
          stage('Test') {
             steps {
                 echo 'Testing done..'
+                sh 'sudo docker -v'
+                sh 'vercel -v'
             }
         }
        stage('Deploying to Vercel') {
