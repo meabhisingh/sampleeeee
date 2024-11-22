@@ -10,6 +10,13 @@ pipeline {
      }
   
       stages {
+
+         stage('Check Environment Variables') {
+            steps {
+                sh 'env'
+            }
+        }
+        
          stage('Test') {
             steps {
                 echo 'Testing done..'
