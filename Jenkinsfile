@@ -13,7 +13,11 @@ pipeline {
 
          stage('Check Environment Variables') {
             steps {
-                echo $PATH
+               sh '''
+                export PATH=$PATH:/home/ubuntu/.local/share/fnm/node-versions/v22.11.0/installation/bin
+                    echo $PATH
+                    vercel -v
+               '''
             }
         }
         
