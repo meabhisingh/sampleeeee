@@ -1,7 +1,9 @@
 
 pipeline {
 
-  agent any
+  agent {
+   label 'worker1'
+  }
 
      environment {
        TOKEN = credentials('vercel-token')
