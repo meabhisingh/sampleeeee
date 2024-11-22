@@ -13,7 +13,7 @@ pipeline {
 
          stage('Check Environment Variables') {
             steps {
-               sh  'export PATH=$PATH:/home/ubuntu/.local/share/fnm/node-versions/v22.11.0/installation/bin/vercel && vercel -v'
+               sh  'export PATH=$PATH:/home/ubuntu/.nvm/versions/node/v22.11.0/bin/vercel && vercel -v'
             }
         }
         
