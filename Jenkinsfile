@@ -33,4 +33,11 @@ pipeline {
         }
       }
 
+    post {
+        always {
+            // Clean the workspace after all stages are complete
+            cleanWs()
+        }
+    }
+
 }
