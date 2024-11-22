@@ -16,7 +16,7 @@ pipeline {
        stage('Deploying to Vercel') {
             steps {
               echo 'Upload to Vercel'
-              sh 'cd samplee && vercel --token $TOKEN -y --prod'
+              sh 'vercel --token $TOKEN -y --prod'
             }
         }
       }
