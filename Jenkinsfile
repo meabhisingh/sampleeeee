@@ -13,7 +13,7 @@ pipeline {
       stages {
 
        stage('Deploying to Vercel') {
-          when{
+          when {
                 expression { BRANCH_NAME == 'dev' }
             }
             steps {
@@ -21,7 +21,7 @@ pipeline {
               sh '$VERCELPATH && vercel --token $TOKEN -y --prod'
             }
         }
-      }
+     
          stage('Deploying to ECS') {
            when{
                 expression { BRANCH_NAME == 'master' }
