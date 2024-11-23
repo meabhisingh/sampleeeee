@@ -12,23 +12,22 @@ pipeline {
   
       stages {
 
-         stage('Check Environment Variables') {
-            steps {
-               sh  '$VERCELPATH && vercel -v'
-            }
-        }
-        
-         stage('Test') {
-            steps {
-                echo 'Testing done..'
-                sh 'sudo docker -v'
-                sh '$VERCELPATH && vercel -v'
-            }
-        }
        stage('Deploying to Vercel') {
+          when{
+                expression { BRANCH_NAME == 'dev' }
+            }
             steps {
               echo 'Upload to Vercel'
               sh '$VERCELPATH && vercel --token $TOKEN -y --prod'
+            }
+        }
+      }
+         stage('Deploying to ECS') {
+           when{
+                expression { BRANCH_NAME == 'master' }
+            }
+            steps {
+              echo 'Upload to ECS'
             }
         }
       }
